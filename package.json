@@ -1,0 +1,22 @@
+{
+  "name": "myflix-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "myFlix-client"
+  },
+  "author": "Klaus",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.3.1"
+  }
+}
