@@ -9,7 +9,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [
-        { _id: 1, Title: 'Gladiator', Description: 'desc1...', ImagePath: '../../../img/gladiator.jpg'},
+        { _id: 1, Title: 'Gladiator', Description: 'desc1...', ImagePath: '../../img/gladiator.jpg'},
         { _id: 2, Title: 'Alien', Description: 'desc2...', ImagePath: '...'},
         { _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...'}
       ]
