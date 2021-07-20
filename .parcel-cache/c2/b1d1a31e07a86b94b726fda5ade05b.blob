@@ -21868,7 +21868,7 @@ class MainView extends _reactDefault.default.Component {
                     _id: 1,
                     Title: 'Gladiator',
                     Description: 'desc1...',
-                    ImagePath: '../../img/gladiator.jpg'
+                    ImagePath: 'src="../../img/gladiator.jpg"'
                 },
                 {
                     _id: 2,
@@ -22224,4 +22224,4 @@ class MovieView extends _reactDefault.default.Component {
 }
 },{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK"}],"6hTeW":[function() {},{}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map
