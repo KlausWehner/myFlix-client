@@ -1,0 +1,39 @@
+var helpers = require("../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _registrationViewScss = require("./registration-view.scss"); // export function LoginView(props) {
+ //   const [ username, setUsername ] = useState('');
+ //   const [ password, setPassword ] = useState('');
+ //   const handleSubmit = () => {
+ //     e.preventDefault();
+ //     console.log(username, password);
+ //     /* Send a request to the server for authentication */
+ //     /* then call props.onLoggedIn(username) */
+ //     props.onLoggedIn(username);
+ //   };
+ //   return (
+ //     <form>
+ //       <label>
+ //         Username:
+ //         <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+ //       </label>
+ //       <label>
+ //         Password:
+ //         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+ //       </label>
+ //       <button type="submit" onClick={handleSubmit}>Submit</button>
+ //     </form>
+ //   );
+ // }
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

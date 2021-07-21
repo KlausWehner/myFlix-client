@@ -1,6 +1,11 @@
 import React from 'react';
 
+`./movie-view.scss` 
+import './movie-view.scss';
+
 export class MovieView extends React.Component {
+
+
 
   render() {
     const { movie, onBackClick } = this.props;
