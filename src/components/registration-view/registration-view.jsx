@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from "prop-types";
 
 `./registration-view.scss` // was this parcel-syntax?
 import './registration-view.scss';
