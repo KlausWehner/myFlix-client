@@ -70,5 +70,5 @@ export class MainView extends React.Component {
         }
       </Row>
     );
-  }
+  }2
 }
