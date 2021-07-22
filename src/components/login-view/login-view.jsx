@@ -38,8 +38,12 @@ export function LoginView(props) {
       </Button>
     </Form>
   );
-
-  //<Button></Button> here is a component from the React-Bootstrap package not the same as the vanilla <button></button> JSX element
-
-
 }
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+  }).isRequired,
+  onLoggedIn: PropTypes.func.isRequired
+};
+

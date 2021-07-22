@@ -56,14 +56,15 @@ export function RegistrationView(props) {
         Submit
       </button>
     </form>
-  );
+
+  )}
 
 
-
-
-
-
-
-
-
+RegistrationView.propTypes = {
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birtday: PropTypes.date
+  }).isRequired,
 }
