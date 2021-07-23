@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { MainView } from "./components/main-view/main-view";
 import Container from 'react-bootstrap/Container';
 
-// Import statement to indicate need to bundle
-`./index.scss`; // was this parcel-syntax?
 import "./index.scss";
 
 // Main component (will eventually use all the others)

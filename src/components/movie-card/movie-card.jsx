@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-`./movie-card.scss`; // is this Parcel-syntax?
 import "./movie-card.scss";
 
 export class MovieCard extends React.Component {

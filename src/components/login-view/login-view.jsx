@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types'; // ??
+import PropTypes from 'prop-types'; 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-`./login-view.scss`; // is this parcel-syntax?
 import "./login-view.scss";
 
 export function LoginView(props) {

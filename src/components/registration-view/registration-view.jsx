@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 
-`./registration-view.scss` // was this parcel-syntax?
 import './registration-view.scss';
 
 export function RegistrationView(props) {
@@ -11,7 +10,7 @@ export function RegistrationView(props) {
   const [ Birthday, setBirthday ] = useState('');
 
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
   };
