@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Button from 'react-bootstrap/Button';
+
 
 import './movie-view.scss';
 
@@ -11,6 +14,7 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
+      <Jumbotron >
       <div className="movie-view">
         <div className="movie-poster">
           <img src={movie.ImageURL} />
@@ -24,9 +28,10 @@ export class MovieView extends React.Component {
           <span className="value">{movie.Description}</span>
         </div>
 
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button variant="outline-dark" size="lg" onClick={() => { onBackClick(null); }}>Back</Button>
 
        </div>
+       </Jumbotron>
     );
   }
 }
