@@ -41,14 +41,13 @@ export class MainView extends React.Component {
     });
   }
 
- 
 
   render() {
     const { movies, selectedMovie } = this.state;
 
-    /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (!user)
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+    /* If there is no user, the LoginView is rendered. but that doesn't work ---- If there is a user logged in, the user details are *passed as a prop to the LoginView*/
+    // if (!user)
+    //   return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
     if (movies.length === 0) return <div className="main-view" />;
 
@@ -56,12 +55,12 @@ export class MainView extends React.Component {
       <Row className="main-view justify-content-md-center">
         {selectedMovie
           ? (
-            <Col md={8}>
+            <Col md={10}>
               <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
             </Col>
           )
           : movies.map(movie => (
-            <Col md={3}>
+            <Col md={6}>
               <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
             </Col>
           ))
