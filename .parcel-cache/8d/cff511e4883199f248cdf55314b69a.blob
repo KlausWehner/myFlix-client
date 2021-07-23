@@ -25842,7 +25842,14 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
-);
+); // MovieCard.propTypes = {
+ //   movie: PropTypes.shape({
+ //     Title: PropTypes.string.isRequired,
+ //     Description: PropTypes.string.isRequired,
+ //     ImageURL: PropTypes.string.isRequired
+ //   }).isRequired,
+ //   onMovieClick: PropTypes.func.isRequired,
+ // };
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
@@ -25856,9 +25863,6 @@ class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
-            border: "dark",
-            bg: "secondary",
-            text: "white",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 13
@@ -25899,17 +25903,9 @@ class MovieCard extends _reactDefault.default.Component {
                 lineNumber: 18
             },
             __self: this
-        }, "MORE INFO"))));
+        }, "Open"))));
     }
 }
-MovieCard.propTypes = {
-    movie: _propTypesDefault.default.shape({
-        Title: _propTypesDefault.default.string.isRequired,
-        Description: _propTypesDefault.default.string.isRequired,
-        ImageURL: _propTypesDefault.default.string.isRequired
-    }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
-};
 
   helpers.postlude(module);
 } finally {
@@ -26288,4 +26284,4 @@ module.exports = exports["default"];
 
 },{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map

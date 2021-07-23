@@ -31,7 +31,7 @@ export class MovieView extends React.Component {
   }
 }
 
-//??
+
 MovieView.propTypes = {
   movie: PropTypes.shape({
     ImageURL: PropTypes.string.isRequired,

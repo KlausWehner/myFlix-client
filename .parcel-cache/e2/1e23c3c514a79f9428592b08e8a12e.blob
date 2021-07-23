@@ -25856,9 +25856,6 @@ class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
-            border: "dark",
-            bg: "secondary",
-            text: "white",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 13
@@ -25890,7 +25887,7 @@ class MovieCard extends _reactDefault.default.Component {
                 lineNumber: 17
             },
             __self: this
-        }, movie.Description), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        }, movie.Descriptionx), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             onClick: ()=>onMovieClick(movie)
             ,
             variant: "link",
@@ -25899,7 +25896,7 @@ class MovieCard extends _reactDefault.default.Component {
                 lineNumber: 18
             },
             __self: this
-        }, "MORE INFO"))));
+        }, "Open"))));
     }
 }
 MovieCard.propTypes = {
@@ -26288,4 +26285,4 @@ module.exports = exports["default"];
 
 },{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map
