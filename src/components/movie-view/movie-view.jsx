@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 

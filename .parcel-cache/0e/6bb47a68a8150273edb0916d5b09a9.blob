@@ -1,0 +1,8 @@
+* {
+  margin-top: 1em;
+}
+
+* {
+  background: #bec2b7;
+  font-family: Arial, Helvetica, sans-serif;
+}
