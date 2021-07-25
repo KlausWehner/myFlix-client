@@ -13,7 +13,7 @@ export class MovieView extends React.Component {
 
     return (
       <Card border="dark" bg="secondary" text="white">
-        <Card.Img variant="top" src={movie.ImageURL} />
+        <Card.Img variant="top" src={movie.imageURL} />
         <Card.Body>
           <Card.Title as="h1">{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
@@ -47,7 +47,7 @@ export class MovieView extends React.Component {
 
 MovieView.propTypes = {
   movie: PropTypes.shape({
-    ImageURL: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
     Director: PropTypes.string,

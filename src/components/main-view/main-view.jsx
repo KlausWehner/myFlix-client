@@ -185,7 +185,7 @@ export class MainView extends React.Component {
                 <Col md={8}>
                   <GenreView
                     genre={
-                      movies.find((m) => m.Genre.Name === match.params.name)
+                      movies.find((m) => m.Genre.name === match.params.name)
                         .Genre
                     }
                     onBackClick={() => history.goBack()}

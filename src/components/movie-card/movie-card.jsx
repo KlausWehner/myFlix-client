@@ -13,7 +13,7 @@ export class MovieCard extends React.Component {
 
     return (
       <Card border="dark" bg="secondary" text="white">
-        <Card.Img variant="top" src={movie.ImageURL} />
+        <Card.Img variant="top" src={movie.imageURL} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           {/* <Card.Text>{movie.Description}</Card.Text>
@@ -35,7 +35,6 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
-    ImageURL: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };

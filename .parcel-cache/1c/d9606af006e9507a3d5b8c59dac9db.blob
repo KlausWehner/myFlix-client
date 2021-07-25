@@ -22051,7 +22051,7 @@ class MainView extends _reactDefault.default.Component {
                 return(/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
                     md: 8
                 }, /*#__PURE__*/ _reactDefault.default.createElement(_genreView.GenreView, {
-                    genre: movies.find((m)=>m.Genre.name === match.params.name
+                    genre: movies.find((m)=>m.Genre.Name === match.params.name
                     ).Genre,
                     onBackClick: ()=>history.goBack()
                 })));
@@ -26077,7 +26077,7 @@ class MovieCard extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
             variant: "top",
-            src: movie.imageURL,
+            src: movie.ImageURL,
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 16
@@ -26117,8 +26117,9 @@ MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
-        imageURL: _propTypesDefault.default.string.isRequired
-    }).isRequired
+        ImageURL: _propTypesDefault.default.string.isRequired
+    }).isRequired,
+    onMovieClick: _propTypesDefault.default.func.isRequired
 };
 
   helpers.postlude(module);
@@ -28732,7 +28733,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
             variant: "top",
-            src: movie.imageURL,
+            src: movie.ImageURL,
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 16
@@ -28803,7 +28804,7 @@ class MovieView extends _reactDefault.default.Component {
 }
 MovieView.propTypes = {
     movie: _propTypesDefault.default.shape({
-        imageURL: _propTypesDefault.default.string.isRequired,
+        ImageURL: _propTypesDefault.default.string.isRequired,
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
         Director: _propTypesDefault.default.string,
@@ -29048,4 +29049,4 @@ module.exports = exports["default"];
 
 },{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map
