@@ -28898,9 +28898,8 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
 ); // DirectorView.propTypes = {
  //   Director: PropTypes.shape({
- //     movie: PropTypes.string,
- //     Director.Bio: PropTypes.string,
- //     Director.name: PropTypes.string,
+ //     name: PropTypes.string.isRequired,
+ //     bio: PropTypes.string.isRequired,
  //   }),
  //   onBackClick: PropTypes.func.isRequired,
  // };
@@ -29056,4 +29055,4 @@ module.exports = exports["default"];
 
 },{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map

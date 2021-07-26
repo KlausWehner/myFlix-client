@@ -28906,7 +28906,8 @@ parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
  // };
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-// import PropTypes from "prop-types";
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _button = require("react-bootstrap/Button");
@@ -28963,7 +28964,7 @@ class DirectorView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Card":"1CZWQ","react-bootstrap/Button":"1ru0l","./director-view.scss":"23h3Z","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK"}],"23h3Z":[function() {},{}],"3fzwD":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Card":"1CZWQ","react-bootstrap/Button":"1ru0l","./director-view.scss":"23h3Z","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK","prop-types":"4dfy5"}],"23h3Z":[function() {},{}],"3fzwD":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -29056,4 +29057,4 @@ module.exports = exports["default"];
 
 },{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map

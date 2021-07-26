@@ -6,13 +6,13 @@ import "./genre-view.scss";
 
 export class GenreView extends React.Component {
   render() {
-    const { genre, onBackClick } = this.props;
+    const { movie, onBackClick } = this.props;
 
     return (
       <Card border="dark" bg="secondary" text="white">
         <Card.Body>
-          <Card.Title as="h1">{movie.Genre}</Card.Title>
-          <Card.Text>{movie.Genre}</Card.Text>
+          <Card.Title as="h1">{movie.Genre.name}</Card.Title>
+          <Card.Text>{movie.Genre.Description}</Card.Text>
 
           <Button
             variant="outline-dark"

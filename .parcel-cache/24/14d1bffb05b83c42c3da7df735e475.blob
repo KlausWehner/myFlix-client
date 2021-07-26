@@ -26077,6 +26077,7 @@ class MovieCard extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
             variant: "top",
+            style: "height:40%",
             src: movie.imageURL,
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-card/movie-card.jsx",
@@ -26117,7 +26118,7 @@ MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
-        imageURL: _propTypesDefault.default.string
+        imageURL: _propTypesDefault.default.string.isRequired
     }).isRequired
 };
 
@@ -28837,7 +28838,7 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _genreViewScss = require("./genre-view.scss");
 class GenreView extends _reactDefault.default.Component {
     render() {
-        const { movie , onBackClick  } = this.props;
+        const { genre , onBackClick  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
             border: "dark",
             bg: "secondary",
@@ -28860,13 +28861,13 @@ class GenreView extends _reactDefault.default.Component {
                 lineNumber: 14
             },
             __self: this
-        }, movie.Genre.name), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
+        }, movie.Genre), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/genre-view/genre-view.jsx",
                 lineNumber: 15
             },
             __self: this
-        }, movie.Genre.Description), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        }, movie.Genre), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "outline-dark",
             size: "lg",
             onClick: ()=>{
@@ -28896,17 +28897,9 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
-); // DirectorView.propTypes = {
- //   Director: PropTypes.shape({
- //     movie: PropTypes.string,
- //     Director.Bio: PropTypes.string,
- //     Director.name: PropTypes.string,
- //   }),
- //   onBackClick: PropTypes.func.isRequired,
- // };
+);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-// import PropTypes from "prop-types";
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _button = require("react-bootstrap/Button");
@@ -28914,36 +28907,36 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _directorViewScss = require("./director-view.scss");
 class DirectorView extends _reactDefault.default.Component {
     render() {
-        const { movie , onBackClick  } = this.props;
+        const { director , onBackClick  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
             border: "dark",
             bg: "secondary",
             text: "white",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/director-view/director-view.jsx",
-                lineNumber: 13
+                lineNumber: 12
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/director-view/director-view.jsx",
-                lineNumber: 14
+                lineNumber: 13
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             as: "h1",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/director-view/director-view.jsx",
-                lineNumber: 15
+                lineNumber: 14
             },
             __self: this
         }, movie.Director.name), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/director-view/director-view.jsx",
-                lineNumber: 16
+                lineNumber: 15
             },
             __self: this
-        }, movie.Director.Bio), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        }, movie.Director.bio), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "outline-dark",
             size: "lg",
             onClick: ()=>{
@@ -28951,7 +28944,7 @@ class DirectorView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/director-view/director-view.jsx",
-                lineNumber: 18
+                lineNumber: 17
             },
             __self: this
         }, "Back"))));
@@ -29056,4 +29049,4 @@ module.exports = exports["default"];
 
 },{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
-//# sourceMappingURL=index.5a2bf38f.js.map
+//# sourceMappingURL=index.HASH_REF_52a4b6e263857f1d2aad90345a2bf38f.js.map
