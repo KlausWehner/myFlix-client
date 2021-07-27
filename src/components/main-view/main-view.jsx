@@ -9,6 +9,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
+import { ProfileView } from "../profile-view/profile-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -84,14 +85,14 @@ export class MainView extends React.Component {
       return <RegistrationView />;
     }
 
-    // if (!user)
-    //   return (
-    //     <Row>
-    //       <Col>
-    //         <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-    //       </Col>
-    //     </Row>
-    //   );
+    if (!user)
+      return (
+        <Row>
+          <Col>
+            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+          </Col>
+        </Row>
+      );
 
     return (
       <Router>
