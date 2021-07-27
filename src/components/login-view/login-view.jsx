@@ -25,14 +25,6 @@ export function LoginView(props) {
       });
   };
 
-  // if (!user)
-  //   return (
-  //     <LoginView
-  //       onLoggedIn={(user) => this.onLoggedIn(user)}
-  //       goToRegistration={() => this.goToRegistration()}
-  //     />
-  //   );
-
   return (
     <Form>
       <Form.Group bg="secondary" controlId="formUsername">
