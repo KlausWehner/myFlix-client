@@ -20,7 +20,7 @@ export function LoginView(props) {
         const data = response.data;
         props.onLoggedIn(data);
       })
-      .catch((e) => {
+      .catch(() => {
         alert("No such user");
       });
   };

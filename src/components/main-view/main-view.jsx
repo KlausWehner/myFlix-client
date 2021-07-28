@@ -13,6 +13,7 @@ import { ProfileView } from "../profile-view/profile-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 import "./main-view.scss";
 
@@ -82,17 +83,24 @@ export class MainView extends React.Component {
     const { movies, user, registered } = this.state;
 
     if (!registered) {
-      return <RegistrationView />;
+      return (
+        <Col>
+          <RegistrationView />
+        </Col>
+      );
     }
 
-    if (!user)
-      return (
-        <Row>
-          <Col>
-            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-          </Col>
-        </Row>
-      );
+    // Where is the button?
+    <Button
+      variant="outline-dark"
+      size="lg"
+      type="submit"
+      onClick={() => {
+        this.onLoggedOut();
+      }}
+    >
+      Logout
+    </Button>;
 
     return (
       <Router>
@@ -119,6 +127,7 @@ export class MainView extends React.Component {
           <Route
             path="/register"
             render={() => {
+              // if (user) return <Redirect to="/" /> THIS LINE IS in the supplied gist.git but when using, it says 'Redirect is not defined'
               return (
                 <Col>
                   <RegistrationView />
