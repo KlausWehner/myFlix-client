@@ -21,7 +21,7 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       })
       .catch((e) => {
-        console.log("No such user");
+        alert("No such user");
       });
   };
 
@@ -49,6 +49,7 @@ export function LoginView(props) {
       </Form.Group>
 
       <Button
+        className="m-1"
         variant="outline-dark"
         size="lg"
         type="submit"
@@ -57,7 +58,8 @@ export function LoginView(props) {
         Submit
       </Button>
 
-      <Button
+      {/* // makes no sense here */}
+      {/* <Button
         variant="outline-dark"
         size="lg"
         type="submit"
@@ -66,9 +68,10 @@ export function LoginView(props) {
         }}
       >
         Logout
-      </Button>
+      </Button> */}
 
       <Button
+        className="m-1"
         variant="outline-dark"
         size="lg"
         type="submit"

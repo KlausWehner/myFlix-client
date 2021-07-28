@@ -22,6 +22,7 @@ export class MovieView extends React.Component {
 
           {/* <ButtonGroup className="custom"> */}
           <Button
+            className="m-1"
             variant="outline-dark"
             size="lg"
             onClick={() => {
@@ -32,13 +33,13 @@ export class MovieView extends React.Component {
           </Button>
 
           <Link to={`/Director/${movie.Director.name}`}>
-            <Button variant="outline-dark" size="lg">
+            <Button variant="outline-dark" size="lg" className="m-1">
               Director
             </Button>
           </Link>
 
           <Link to={`/Genre/${movie.Genre.name}`}>
-            <Button variant="outline-dark" size="lg">
+            <Button variant="outline-dark" size="lg" className="m-1">
               Genre
             </Button>
           </Link>
