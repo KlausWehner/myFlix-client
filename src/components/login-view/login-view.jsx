@@ -58,18 +58,6 @@ export function LoginView(props) {
         Submit
       </Button>
 
-      {/* // makes no sense here */}
-      {/* <Button
-        variant="outline-dark"
-        size="lg"
-        type="submit"
-        onClick={() => {
-          this.onLoggedOut();
-        }}
-      >
-        Logout
-      </Button> */}
-
       <Button
         className="m-1"
         variant="outline-dark"

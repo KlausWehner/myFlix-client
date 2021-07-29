@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+// import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,6 @@ export class MovieView extends React.Component {
           <Card.Title as="h1">{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
 
-          {/* <ButtonGroup className="custom"> */}
           <Button
             className="m-1"
             variant="outline-dark"
@@ -43,7 +42,6 @@ export class MovieView extends React.Component {
               Genre
             </Button>
           </Link>
-          {/* </ButtonGroup> */}
         </Card.Body>
       </Card>
     );

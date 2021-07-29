@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import axios from "axios";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap";
+
 import "./profile-view.scss";
 
 export class ProfileView extends React.Component {
@@ -42,25 +46,27 @@ export class ProfileView extends React.Component {
       });
   }
 
-  /* Remove From Favorites */
+  /* Remove movie from list of Favorites */
   handleRemove(movie) {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
     axios
       .post(
-        `https://klaus-movie-api.herokuapp.com/users/${user}` + movie._id,
+        `https://klaus-movie-api.herokuapp.com/users/${user}/favorites/${movie._id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       )
-      .then((response) => {
-        console.log(response);
-        alert(movie.Title + " has been removed from your favorites!");
+      .then(() => {
+        alert(
+          "The title " + movie.Title + " has been removed from your favorites!"
+        );
         window.location.reload(false);
       });
   }
 
+  /* Delete user account */
   handleDelete() {
-    const answer = window.confirm("This cannot be undone, are you sure?");
+    const answer = window.confirm("You want to delete your account??");
     if (answer) {
       const token = localStorage.getItem("token");
       const user = localStorage.getItem("user");
@@ -69,7 +75,7 @@ export class ProfileView extends React.Component {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => {
-          alert(user + " has been deleted.");
+          alert(user + " has been deleted!");
           localStorage.removeItem("user");
           localStorage.removeItem("token");
           window.location.pathname = "/";
@@ -78,11 +84,11 @@ export class ProfileView extends React.Component {
           console.log(error);
         });
     } else {
-      // Do Nothing
       console.log("User not deleted!");
     }
   }
 
+  // SHOW DETAILS
   render() {
     const { movies, user } = this.props;
 
@@ -91,8 +97,8 @@ export class ProfileView extends React.Component {
     });
 
     return (
-      <Container className="profile-wrapper m-4">
-        <Row className="text-white">
+      <Container>
+        <Row className="main-view justify-content-md-center">
           <Col>
             <h2>Username: {`${this.props.user}`}</h2>
             <p>Email: {`${this.state.Email}`}</p>
@@ -100,22 +106,26 @@ export class ProfileView extends React.Component {
             <h5 className="mt-5">Your Favorites</h5>
           </Col>
         </Row>
+
+        {/* // SHOW FAVE MOVIES LIST */}
         <Row>
           {favoritesList.map((movie) => {
             return (
               <Col md={4} key={movie._id}>
                 <div key={movie._id}>
-                  <Card className="mb-4 h-100 text-white bg-transparent">
-                    <Card.Img variant="top" src={movie.ImageUrl} />
+                  <Card border="dark" bg="secondary" text="white">
+                    <Card.Img variant="top" src={movie.imageUrl} />
                     <Card.Body>
                       <Link to={`/movies/${movie.Title}`}>
                         <Card.Img variant="top" src={movie.imageUrl} />
                         <Card.Title as="h3">{movie.Title}</Card.Title>
                       </Link>
+
+                      {/* Buttons  */}
                       <Button
-                        className="mb-4"
-                        variant="outline-secondary"
-                        size="sm"
+                        className="m-1"
+                        variant="outline-dark"
+                        size="lg"
                         onClick={() => this.handleRemove(movie)}
                       >
                         Remove from Favorites
@@ -127,21 +137,21 @@ export class ProfileView extends React.Component {
             );
           })}
         </Row>
+
         <Row>
-          <Col className="acc-btns mt-1">
+          <Col>
             <Button
-              size="md"
-              variant="outline-danger"
-              type="submit"
-              ml="4"
+              className="m-1"
+              variant="outline-dark"
+              size="lg"
               onClick={() => this.handleDelete()}
             >
               Delete Account
             </Button>
           </Col>
-          <Col className="acc-btns mt-1">
-            <Link to={`/userupdate/${this.props.user}`}>
-              <Button size="md" variant="warning">
+          <Col>
+            <Link to={`/users/${this.props.user}`}>
+              <Button className="m-1" variant="outline-dark" size="lg">
                 Edit Account
               </Button>
             </Link>

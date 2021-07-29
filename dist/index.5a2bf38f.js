@@ -26647,7 +26647,7 @@ function LoginView(props) {
         onClick: props.goToRegistration,
         __source: {
             fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 73
+            lineNumber: 61
         },
         __self: this
     }, "No account? Register here!")));
@@ -28715,8 +28715,7 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
-var _buttonGroup = require("react-bootstrap/ButtonGroup");
-var _buttonGroupDefault = parcelHelpers.interopDefault(_buttonGroup);
+// import ButtonGroup from "react-bootstrap/ButtonGroup";
 var _reactRouterDom = require("react-router-dom");
 var _movieViewScss = require("./movie-view.scss");
 var _reactBootstrap = require("react-bootstrap");
@@ -28768,14 +28767,14 @@ class MovieView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 24
+                lineNumber: 23
             },
             __self: this
         }, "Back"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/Director/${movie.Director.name}`,
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 35
+                lineNumber: 34
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -28784,14 +28783,14 @@ class MovieView extends _reactDefault.default.Component {
             className: "m-1",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 36
+                lineNumber: 35
             },
             __self: this
         }, "Director")), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/Genre/${movie.Genre.name}`,
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 41
+                lineNumber: 40
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -28800,7 +28799,7 @@ class MovieView extends _reactDefault.default.Component {
             className: "m-1",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 42
+                lineNumber: 41
             },
             __self: this
         }, "Genre")))));
@@ -28822,7 +28821,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","./movie-view.scss":"7iG7M","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK","react-bootstrap":"4n7hB","react-bootstrap/ButtonGroup":"2THBw"}],"7iG7M":[function() {},{}],"4n7hB":[function(require,module,exports) {
+},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","./movie-view.scss":"7iG7M","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK","react-bootstrap":"4n7hB"}],"7iG7M":[function() {},{}],"4n7hB":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -39621,16 +39620,19 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
+var _reactRouterDom = require("react-router-dom");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _reactBootstrap = require("react-bootstrap");
+var _reactBootstrapDefault = parcelHelpers.interopDefault(_reactBootstrap);
 var _profileViewScss = require("./profile-view.scss");
 class ProfileView extends _reactDefault.default.Component {
     constructor(){
@@ -39663,22 +39665,21 @@ class ProfileView extends _reactDefault.default.Component {
             });
         });
     }
-    /* Remove From Favorites */ handleRemove(movie) {
+    /* Remove movie from list of Favorites */ handleRemove(movie) {
         const token = localStorage.getItem("token");
         const user = localStorage.getItem("user");
-        _axiosDefault.default.post(`https://klaus-movie-api.herokuapp.com/users/${user}` + movie._id, {
+        _axiosDefault.default.post(`https://klaus-movie-api.herokuapp.com/users/${user}/favorites/${movie._id}`, {
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then((response)=>{
-            console.log(response);
-            alert(movie.Title + " has been removed from your favorites!");
+        }).then(()=>{
+            alert("The title " + movie.Title + " has been removed from your favorites!");
             window.location.reload(false);
         });
     }
-    handleDelete() {
-        const answer = window.confirm("This cannot be undone, are you sure?");
+    /* Delete user account */ handleDelete() {
+        const answer = window.confirm("You want to delete your account??");
         if (answer) {
             const token = localStorage.getItem("token");
             const user = localStorage.getItem("user");
@@ -39687,70 +39688,69 @@ class ProfileView extends _reactDefault.default.Component {
                     Authorization: `Bearer ${token}`
                 }
             }).then(()=>{
-                alert(user + " has been deleted.");
+                alert(user + " has been deleted!");
                 localStorage.removeItem("user");
                 localStorage.removeItem("token");
                 window.location.pathname = "/";
             }).catch(function(error) {
                 console.log(error);
             });
-        } else // Do Nothing
-        console.log("User not deleted!");
+        } else console.log("User not deleted!");
     }
+    // SHOW DETAILS
     render() {
         const { movies , user  } = this.props;
         const favoritesList = movies.filter((m)=>{
             return this.state.Favorites.includes(m._id);
         });
-        return(/*#__PURE__*/ _reactDefault.default.createElement(Container, {
-            className: "profile-wrapper m-4",
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrapDefault.default, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 94
+                lineNumber: 100
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
-            className: "text-white",
+            className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 95
+                lineNumber: 101
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 96
+                lineNumber: 102
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 97
+                lineNumber: 103
             },
             __self: this
         }, "Username: ", `${this.props.user}`), /*#__PURE__*/ _reactDefault.default.createElement("p", {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 98
+                lineNumber: 104
             },
             __self: this
         }, "Email: ", `${this.state.Email}`), /*#__PURE__*/ _reactDefault.default.createElement("p", {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 99
+                lineNumber: 105
             },
             __self: this
         }, "Birthday: ", `${this.state.Birthday}`), /*#__PURE__*/ _reactDefault.default.createElement("h5", {
             className: "mt-5",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 100
+                lineNumber: 106
             },
             __self: this
         }, "Your Favorites"))), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 103
+                lineNumber: 111
             },
             __self: this
         }, favoritesList.map((movie)=>{
@@ -39759,116 +39759,116 @@ class ProfileView extends _reactDefault.default.Component {
                 key: movie._id,
                 __source: {
                     fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 106
+                    lineNumber: 114
                 },
                 __self: this
             }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
                 key: movie._id,
                 __source: {
                     fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 107
+                    lineNumber: 115
                 },
                 __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(Card, {
-                className: "mb-4 h-100 text-white bg-transparent",
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+                border: "dark",
+                bg: "secondary",
+                text: "white",
                 __source: {
                     fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 108
+                    lineNumber: 116
                 },
                 __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(Card.Img, {
-                variant: "top",
-                src: movie.ImageUrl,
-                __source: {
-                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 109
-                },
-                __self: this
-            }), /*#__PURE__*/ _reactDefault.default.createElement(Card.Body, {
-                __source: {
-                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 110
-                },
-                __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(Link, {
-                to: `/movies/${movie.Title}`,
-                __source: {
-                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 111
-                },
-                __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(Card.Img, {
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
                 variant: "top",
                 src: movie.imageUrl,
                 __source: {
                     fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 112
+                    lineNumber: 117
                 },
                 __self: this
-            }), /*#__PURE__*/ _reactDefault.default.createElement(Card.Title, {
+            }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 118
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+                to: `/movies/${movie.Title}`,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 119
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
+                variant: "top",
+                src: movie.imageUrl,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 120
+                },
+                __self: this
+            }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
                 as: "h3",
                 __source: {
                     fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 113
+                    lineNumber: 121
                 },
                 __self: this
             }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-                className: "mb-4",
-                variant: "outline-secondary",
-                size: "sm",
+                className: "m-1",
+                variant: "outline-dark",
+                size: "lg",
                 onClick: ()=>this.handleRemove(movie)
                 ,
                 __source: {
                     fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 115
+                    lineNumber: 125
                 },
                 __self: this
             }, "Remove from Favorites"))))));
         })), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 130
+                lineNumber: 141
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
-            className: "acc-btns mt-1",
-            __source: {
-                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 131
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            size: "md",
-            variant: "outline-danger",
-            type: "submit",
-            ml: "4",
-            onClick: ()=>this.handleDelete()
-            ,
-            __source: {
-                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 132
-            },
-            __self: this
-        }, "Delete Account")), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
-            className: "acc-btns mt-1",
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
                 lineNumber: 142
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(Link, {
-            to: `/userupdate/${this.props.user}`,
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            className: "m-1",
+            variant: "outline-dark",
+            size: "lg",
+            onClick: ()=>this.handleDelete()
+            ,
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
                 lineNumber: 143
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            size: "md",
-            variant: "warning",
+        }, "Delete Account")), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 144
+                lineNumber: 152
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/users/${this.props.user}`,
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 153
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            className: "m-1",
+            variant: "outline-dark",
+            size: "lg",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 154
             },
             __self: this
         }, "Edit Account"))))));
@@ -39889,6 +39889,6 @@ ProfileView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","axios":"7rA65","./profile-view.scss":"4kZA8","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8"}],"4kZA8":[function() {},{}],"6hTeW":[function() {},{}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
+},{"react":"3b2NM","prop-types":"4dfy5","axios":"7rA65","./profile-view.scss":"4kZA8","@parcel/transformer-js/src/esmodule-helpers.js":"HhEbt","../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1DGwK","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","react-bootstrap":"4n7hB"}],"4kZA8":[function() {},{}],"6hTeW":[function() {},{}]},["1j6wU","18aY3","6gujX"], "6gujX", "parcelRequire279c")
 
 //# sourceMappingURL=index.5a2bf38f.js.map
