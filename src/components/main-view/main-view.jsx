@@ -28,12 +28,6 @@ export class MainView extends React.Component {
     };
   }
 
-  goToRegistration() {
-    this.setState({
-      registered: false,
-    });
-  }
-
   getMovies(token) {
     axios
       .get("https://klaus-movie-api.herokuapp.com/movies", {
@@ -76,6 +70,12 @@ export class MainView extends React.Component {
     localStorage.removeItem("user");
     this.setState({
       user: null,
+    });
+  }
+
+  goToRegistration() {
+    this.setState({
+      registered: false,
     });
   }
 

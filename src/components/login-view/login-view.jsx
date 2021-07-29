@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "./login-view.scss";
 
+import { Link } from "react-router-dom";
+
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -58,15 +60,17 @@ export function LoginView(props) {
         Submit
       </Button>
 
-      <Button
-        className="m-1"
-        variant="outline-dark"
-        size="lg"
-        type="submit"
-        onClick={props.goToRegistration}
-      >
-        No account? Register here!
-      </Button>
+      <Link to={`/register`}>
+        <Button
+          className="m-1"
+          variant="outline-dark"
+          size="lg"
+          type="submit"
+          // onClick={props.goToRegistration}
+        >
+          No account? Register here!
+        </Button>{" "}
+      </Link>
     </Form>
   );
 }
