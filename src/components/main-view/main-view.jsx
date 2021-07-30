@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -14,6 +15,8 @@ import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 
 import "./main-view.scss";
 
@@ -21,8 +24,8 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: null, //?
-      movies: [], //??
+      selectedMovie: null,
+      movies: [],
       user: null,
       registered: true,
     };
@@ -90,18 +93,6 @@ export class MainView extends React.Component {
       );
     }
 
-    // Where is the button?
-    <Button
-      variant="outline-dark"
-      size="lg"
-      type="submit"
-      onClick={() => {
-        this.onLoggedOut();
-      }}
-    >
-      Logout
-    </Button>;
-
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
@@ -123,11 +114,9 @@ export class MainView extends React.Component {
               ));
             }}
           />
-
           <Route
             path="/register"
             render={() => {
-              // if (user) return <Redirect to="/" /> THIS LINE IS in the supplied gist.git but when using, it says 'Redirect is not defined'
               return (
                 <Col>
                   <RegistrationView />
@@ -135,7 +124,6 @@ export class MainView extends React.Component {
               );
             }}
           />
-
           <Route
             path="/movies/:movieId"
             render={({ match, history }) => {
@@ -156,7 +144,6 @@ export class MainView extends React.Component {
               );
             }}
           />
-
           <Route
             path="/Director/:name"
             render={({ match, history }) => {
@@ -180,7 +167,6 @@ export class MainView extends React.Component {
               );
             }}
           />
-
           <Route
             path="/Genre/:name"
             render={({ match, history }) => {
@@ -204,6 +190,37 @@ export class MainView extends React.Component {
               );
             }}
           />
+          <Route
+            path="/profile"
+            render={() => {
+              return <ProfileView movies={movies} user={user} />;
+            }}
+          />
+          <Container>
+            <Navbar expand="md" bg="light" variant="light">
+              <Container>
+                <Navbar.Brand href="/">MOVIE FLIX</Navbar.Brand>
+
+                <Button
+                  variant="outline-dark"
+                  size="md"
+                  type="submit"
+                  onClick={() => {
+                    this.onLoggedOut();
+                  }}
+                >
+                  Logout
+                </Button>
+
+                <Link to={`/profile`}>
+                  {" "}
+                  <Button className="m-1" variant="outline-dark" size="md">
+                    My profile
+                  </Button>
+                </Link>
+              </Container>
+            </Navbar>
+          </Container>
         </Row>
       </Router>
     );

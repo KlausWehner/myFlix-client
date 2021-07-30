@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 import "./profile-view.scss";
 
@@ -29,7 +29,7 @@ export class ProfileView extends React.Component {
 
   getUser(token) {
     let url =
-      "https://klaus-movie-api.herokuapp.com/users" +
+      "https://klaus-movie-api.herokuapp.com/users/" +
       localStorage.getItem("user");
     axios
       .get(url, {
@@ -92,8 +92,8 @@ export class ProfileView extends React.Component {
   render() {
     const { movies, user } = this.props;
 
-    const favoritesList = movies.filter((m) => {
-      return this.state.Favorites.includes(m._id);
+    const favoritesList = movies.filter((movie) => {
+      return this.state.Favorites.includes(movie._id);
     });
 
     return (

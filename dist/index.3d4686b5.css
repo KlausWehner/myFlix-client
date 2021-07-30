@@ -8,8 +8,8 @@
 }
 
 
-body {
-  background-color: gold;
+.nav-link {
+  color: #ffffff !important;
 }
 
 .my-flix {
