@@ -64,9 +64,11 @@ export class ProfileView extends React.Component {
       });
   }
 
-  /* Delete user account */
+  /* Delete user account - works!! */
   handleDelete() {
-    const answer = window.confirm("You want to delete your account??");
+    const answer = window.confirm(
+      "You want to delete your account??  THIS CANNOT BE UNDONE!!"
+    );
     if (answer) {
       const token = localStorage.getItem("token");
       const user = localStorage.getItem("user");
@@ -93,17 +95,17 @@ export class ProfileView extends React.Component {
     const { movies, user } = this.props;
 
     const favoritesList = movies.filter((movie) => {
-      return this.state.Favorites.includes(movie._id);
+      // return this.state.Favorites.includes(movie._id);
     });
 
     return (
       <Container>
         <Row className="main-view justify-content-md-center">
           <Col>
-            <h2>Username: {`${this.props.user}`}</h2>
+            <h3>Username: {`${this.props.user}`}</h3>
             <p>Email: {`${this.state.Email}`}</p>
             <p>Birthday: {`${this.state.Birthday}`}</p>
-            <h5 className="mt-5">Your Favorites</h5>
+            <p className="mt-5">Your Favorites</p>
           </Col>
         </Row>
 

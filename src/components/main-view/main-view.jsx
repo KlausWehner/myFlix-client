@@ -197,11 +197,11 @@ export class MainView extends React.Component {
             }}
           />
           <Container>
-            <Navbar expand="md" bg="light" variant="light">
+            <Navbar fixed="top" bg="light" variant="light" top="0">
+              <Navbar.Brand href="/">MOVIE FLIX</Navbar.Brand>
               <Container>
-                <Navbar.Brand href="/">MOVIE FLIX</Navbar.Brand>
-
                 <Button
+                  className="m-1"
                   variant="outline-dark"
                   size="md"
                   type="submit"
@@ -214,7 +214,12 @@ export class MainView extends React.Component {
 
                 <Link to={`/profile`}>
                   {" "}
-                  <Button className="m-1" variant="outline-dark" size="md">
+                  <Button
+                    className="m-1"
+                    variant="outline-dark"
+                    size="md"
+                    type="submit"
+                  >
                     My profile
                   </Button>
                 </Link>
