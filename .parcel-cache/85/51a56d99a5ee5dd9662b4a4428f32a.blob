@@ -1,0 +1,282 @@
+var helpers = require("../../../../../../../../../usr/local/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _profileViewScss = require("./profile-view.scss");
+class ProfileView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            Username: null,
+            Password: null,
+            Email: null,
+            Birthday: null,
+            Favorites: []
+        };
+    }
+    componentDidMount() {
+        let accessToken = localStorage.getItem("token");
+        this.getUser(accessToken);
+    }
+    getUser(token) {
+        let url = "https://klaus-movie-api.herokuapp.com/users" + localStorage.getItem("user");
+        _axiosDefault.default.get(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.setState({
+                Username: response.data.Username,
+                Password: response.data.Password,
+                Email: response.data.Email,
+                Birthday: response.data.Birthday,
+                Favorites: response.data.Favorites
+            });
+        });
+    }
+    /* Remove From Favorites */ handleRemove(movie) {
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+        _axiosDefault.default.post(`https://klaus-movie-api.herokuapp.com/users/${user}` + movie._id, {
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            alert(movie.Title + " has been removed from your favorites!");
+            window.location.reload(false);
+        });
+    }
+    handleDelete() {
+        const answer = window.confirm("This cannot be undone, are you sure?");
+        if (answer) {
+            const token = localStorage.getItem("token");
+            const user = localStorage.getItem("user");
+            _axiosDefault.default.delete(`https://klaus-movie-api.herokuapp.com/users/${user}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(()=>{
+                alert(user + " has been deleted.");
+                localStorage.removeItem("user");
+                localStorage.removeItem("token");
+                window.location.pathname = "/";
+            }).catch(function(error) {
+                console.log(error);
+            });
+        } else // Do Nothing
+        console.log("User not deleted!");
+    }
+    render() {
+        const { movies , user  } = this.props;
+        const favoritesList = movies.filter((m)=>{
+            return this.state.Favorites.includes(m._id);
+        });
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Container, {
+            className: "profile-wrapper m-4",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 93
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+            className: "text-white",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 94
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 95
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 96
+            },
+            __self: this
+        }, "Username: ", `${this.props.user}`), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 97
+            },
+            __self: this
+        }, "Email: ", `${this.state.Email}`), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 98
+            },
+            __self: this
+        }, "Birthday: ", `${this.state.Birthday}`), /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            className: "mt-5",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 99
+            },
+            __self: this
+        }, "Your Favorites"))), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 102
+            },
+            __self: this
+        }, favoritesList.map((movie)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+                md: 4,
+                key: movie._id,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 105
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+                key: movie._id,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 106
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(Card, {
+                className: "mb-4 h-100 text-white bg-transparent",
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 107
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(Card.Img, {
+                variant: "top",
+                src: movie.ImageUrl,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 108
+                },
+                __self: this
+            }), /*#__PURE__*/ _reactDefault.default.createElement(Card.Body, {
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 109
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(Link, {
+                to: `/movies/${movie.Title}`,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 110
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(Card.Img, {
+                variant: "top",
+                src: movie.imageUrl,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 111
+                },
+                __self: this
+            }), /*#__PURE__*/ _reactDefault.default.createElement(Card.Title, {
+                as: "h3",
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 112
+                },
+                __self: this
+            }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+                className: "mb-4",
+                variant: "outline-secondary",
+                size: "sm",
+                onClick: ()=>this.handleRemove(movie)
+                ,
+                __source: {
+                    fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 114
+                },
+                __self: this
+            }, "Remove from Favorites"))))));
+        })), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 129
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+            className: "acc-btns mt-1",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 130
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            size: "md",
+            variant: "outline-danger",
+            type: "submit",
+            ml: "4",
+            onClick: ()=>this.handleDelete()
+            ,
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 131
+            },
+            __self: this
+        }, "Delete Account")), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+            className: "acc-btns mt-1",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 141
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(Link, {
+            to: `/userupdate/${this.props.user}`,
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 142
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            size: "md",
+            variant: "warning",
+            __source: {
+                fileName: "/Users/klauswehner2/Documents/WEB-Design-Dev/CareerFOUNDRY/myFlix-client/src/components/profile-view/profile-view.jsx",
+                lineNumber: 143
+            },
+            __self: this
+        }, "Edit Account"))))));
+    }
+}
+ProfileView.propTypes = {
+    users: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string,
+        Favorites: _propTypesDefault.default.array
+    }),
+    movies: _propTypesDefault.default.array.isRequired
+};
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

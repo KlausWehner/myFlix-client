@@ -1,0 +1,21 @@
+
+
+* {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-size: 20px;
+}
+
+body {
+  background: #bec2b7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: gold;
+}
+
+.my-flix {
+  color: #707172;
+  background-color: #a7a5a3;
+}
+/*# sourceMappingURL=index.HASH_REF_7ddc94d82217f9da6ead2597b326f5d4.css.map */

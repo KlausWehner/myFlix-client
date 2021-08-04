@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MainView } from "./components/main-view/main-view"; // { variable in jsx }in curly braces because it was exported without the default keyword in “main-view.jsx”. to get rid of the curly braces, simply add default right after export in “main-view.jsx”:
 
-// Import statement to indicate need to bundle
-`./index.scss`; // was this parcel-syntax?
+import { MainView } from "./components/main-view/main-view";
+import Container from "react-bootstrap/Container";
+
 import "./index.scss";
 
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
   render() {
-    return <MainView />;
+    return (
+      <Container>
+        <MainView />
+      </Container>
+    );
   }
 }
 

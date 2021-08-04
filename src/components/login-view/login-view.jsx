@@ -1,41 +1,85 @@
 import React, { useState } from "react";
-
-`./login-view.scss`; // is this parcel-syntax?
+import PropTypes from "prop-types";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
 import "./login-view.scss";
+
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    /* Send request to the server for authentication then call
-     props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios
+      .post("https://klaus-movie-api.herokuapp.com/login", {
+        Username: username,
+        Password: password,
+      })
+      .then((response) => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(() => {
+        alert("No such user");
+      });
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input
+    <Form>
+      <Form.Group bg="secondary" controlId="formUsername">
+        <Form.Label as="h2">Username:</Form.Label>
+        <Form.Control
+          size="lg"
           type="text"
-          value={username}
+          placeholder="..."
           onChange={(e) => setUsername(e.target.value)}
         />
-      </label>
-      <label>
-        Password:
-        <input
+      </Form.Group>
+
+      <Form.Group controlId="formPassword">
+        <Form.Label as="h2">Password:</Form.Label>
+        <Form.Control
+          size="lg"
           type="password"
+          placeholder="..."
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </label>
-      <button type="submit" onClick={handleSubmit}>
+      </Form.Group>
+
+      <Button
+        className="m-1"
+        variant="outline-dark"
+        size="lg"
+        type="submit"
+        onClick={handleSubmit}
+      >
         Submit
-      </button>
-    </form>
+      </Button>
+
+      <Link to={`/register`}>
+        <Button
+          className="m-1"
+          variant="outline-dark"
+          size="lg"
+          type="submit"
+          // onClick={props.goToRegistration}
+        >
+          No account? Register here!
+        </Button>{" "}
+      </Link>
+    </Form>
   );
 }
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+  }),
+  onLoggedIn: PropTypes.func.isRequired,
+  goToRegistration: PropTypes.func,
+};

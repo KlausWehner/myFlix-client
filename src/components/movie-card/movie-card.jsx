@@ -1,17 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
-`./movie-card.scss`; // is this Parcel-syntax?
+import { Link } from "react-router-dom";
+
 import "./movie-card.scss";
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick } = this.props;
+    const { movie } = this.props;
 
     return (
-      <div onClick={() => onMovieClick(movie)} className="movie-card">
-        {movie.Title}
-      </div>
+      <Card border="dark" bg="secondary" text="white">
+        <Card.Img variant="top" src={movie.imageURL} />
+        <Card.Body>
+          <Card.Title>{movie.Title}</Card.Title>
+          {/* <Card.Text>{movie.Description}</Card.Text>
+          commented out to save description for movie-view */}
+
+          <Link to={`/movies/${movie._id}`}>
+            <Button variant="outline-dark" size="lg">
+              {" "}
+              MORE INFO{" "}
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
     );
   }
 }
@@ -20,7 +35,6 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string, //?  .isRequired
+    imageURL: PropTypes.string,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };

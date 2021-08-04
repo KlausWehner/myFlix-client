@@ -1,1 +1,1 @@
-{"mappings":";;;;;AAEA;EACE,OAHM;EAIN","sources":["src/index.scss"],"sourcesContent":[null],"names":[],"version":3,"file":"index.3d4686b5.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":";;;;;;AAMA;EAEE;;;AAGF;EACE;;;AAMF;EACE;EACA;EACA,WALW;;;ACdb;EACE,OAHM;EAIN","sources":["src/components/main-view/main-view.scss","src/index.scss"],"sourcesContent":[null,null],"names":[],"version":3,"file":"index.3d4686b5.css.map","sourceRoot":"/__parcel_source_root/"}

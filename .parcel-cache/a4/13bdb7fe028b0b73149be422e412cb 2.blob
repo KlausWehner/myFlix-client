@@ -1,0 +1,28 @@
+body {
+  background-color: var(--primary-color);
+  color: var(--main-color);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: var(--font-size-txt);
+  font-weight: 350;
+  line-height: normal;
+  margin: 1vh 3vw;
+}
+
+:root {
+  --primary-color: rgb(255, 255, 241);
+  /*background*/
+  --secondary-color: rgb(153, 153, 151);
+  /*rollover - hover */
+  --main-color: rgb(99, 57, 57);
+  /* main font */
+  --font-size-headings: calc(1.2rem + 1.5vw);
+  /*also used for h1*/
+  --font-size-subheadings: calc(1.2rem + 1.2vw);
+  /*also used for h2*/
+  --font-size-links: calc(.5rem + 1vw);
+  /* also used for h3*/
+  --font-size-txt: calc(.6rem + .5vw);
+  --font-weight-heavy: 500;
+  --font-weight-medium: 400;
+  --font-weight-light: 350;
+}
