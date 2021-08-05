@@ -7,10 +7,16 @@ import axios from "axios";
 
 import MoviesList from "../movies-list/movies-list";
 
-import { setMovies } from "../../actions/actions";
+import {
+  setMovies,
+  setUser,
+  setFavorites,
+  setView,
+} from "../../actions/actions";
+
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
-import { MovieCard } from "../movie-card/movie-card";
+
 import { MovieView } from "../movie-view/movie-view";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
@@ -24,14 +30,12 @@ import Container from "react-bootstrap/Container";
 
 import "./main-view.scss";
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      // selectedMovie: null,
-      // movies: [],
       user: null,
-      registered: true,
+      // registered: true,
     };
   }
 
@@ -87,13 +91,13 @@ export class MainView extends React.Component {
     let { movies } = this.props;
     let { user } = this.state;
 
-    if (!registered) {
-      return (
-        <Col>
-          <RegistrationView />
-        </Col>
-      );
-    }
+    // if (!registered) {
+    //   return (
+    //     <Col>
+    //       <RegistrationView />
+    //     </Col>
+    //   );
+    // }
 
     return (
       <Router>
@@ -235,4 +239,9 @@ let mapStateToProps = (state) => {
   return { movies: state.movies };
 };
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, {
+  setMovies,
+  setUser,
+  setFavorites,
+  setView,
+})(MainView);
