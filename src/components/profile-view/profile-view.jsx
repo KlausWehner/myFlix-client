@@ -104,7 +104,7 @@ export class ProfileView extends React.Component {
           <Col>
             <h3>Username: {`${this.props.user}`}</h3>
             <p>Email: {`${this.state.Email}`}</p>
-            <p>Birthday: {`${this.state.Birthday}`}</p>
+            <p>Birthday: {new Date(this.state.Birthday).toDateString()}</p>
             <p className="mt-5">Your Favorites</p>
           </Col>
         </Row>
